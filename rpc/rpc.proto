@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option php_namespace = "ROC\\RPC";
+
+package rpc;
+
+service UserInterface {
+  rpc info(UserInput) returns (User) {}
+}
+
+message UserInput{
+  uint64 id = 1;
+}
+
+message User {
+  uint64 id = 1;
+  string name = 2;
+  uint32 gender = 3;
+}
