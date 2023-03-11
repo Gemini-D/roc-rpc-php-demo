@@ -44,6 +44,7 @@
         "hyperf/rpc-client": "3.0.x-dev",
         "hyperf/rpc-log-listener": "^1.0",
         "hyperf/rpc-multiplex": "3.0.x-dev",
+        "hyperf/rpc-server": "3.0.x-dev",
         "hyperf/server": "3.0.*",
         "hyperf/utils": "3.0.*",
         "roc/rpc": "dev-main"

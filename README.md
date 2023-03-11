@@ -168,6 +168,7 @@ composer require roc/rpc
 composer require "hyperf/rpc-client:3.0.x-dev" -W
 composer require "hyperf/rpc:3.0.x-dev" -W
 composer require "hyperf/rpc-multiplex:3.0.x-dev" -W
+composer require "hyperf/rpc-server:3.0.x-dev" -W
 ```
 
 ### 增加 RPC 服务配置
