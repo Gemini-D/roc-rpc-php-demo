@@ -9,14 +9,15 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace App\Service;
+namespace App\RPC;
 
+use Hyperf\RpcMultiplex\Constant;
 use Hyperf\RpcServer\Annotation\RpcService;
 use ROC\RPC\User;
 use ROC\RPC\UserInput;
 use ROC\RPC\UserInterface;
 
-#[RpcService()]
+#[RpcService(name: UserInterface::class, server: 'rpc', protocol: Constant::PROTOCOL_DEFAULT)]
 class UserService implements UserInterface
 {
     public function info(UserInput $input): User

@@ -11,16 +11,19 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use Hyperf\Di\Annotation\Inject;
+use ROC\RPC\UserInput;
+use ROC\RPC\UserInterface;
+
 class IndexController extends Controller
 {
+    #[Inject]
+    protected UserInterface $user;
+
     public function index()
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
-        return $this->response->success([
-            'user' => $user,
-            'method' => $method,
-            'message' => 'Hello Hyperf.',
-        ]);
+        $result = $this->user->info(new UserInput(1));
+
+        return $this->response->success($result);
     }
 }

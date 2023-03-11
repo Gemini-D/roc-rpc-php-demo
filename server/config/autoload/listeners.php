@@ -12,4 +12,6 @@ declare(strict_types=1);
 return [
     Hyperf\ExceptionHandler\Listener\ErrorExceptionHandler::class,
     Hyperf\Command\Listener\FailToHandleListener::class,
+    ROC\RPC\Listener\BootConsumerListener::class => 99,
+    Hyperf\RPCLogListener\RPCEventListener::class,
 ];
