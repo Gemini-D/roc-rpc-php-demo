@@ -13,7 +13,7 @@ namespace ROC\RPC;
 
 class User implements \JsonSerializable
 {
-    public function __construct(public mixed $id, public string $name, public mixed $gender)
+    public function __construct(public int $id, public string $name, public int $gender)
     {
     }
 

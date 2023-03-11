@@ -40,8 +40,12 @@
         "hyperf/pool": "3.0.*",
         "hyperf/process": "3.0.*",
         "hyperf/redis": "3.0.*",
+        "hyperf/rpc": "3.0.x-dev",
+        "hyperf/rpc-client": "3.0.x-dev",
+        "hyperf/rpc-multiplex": "3.0.x-dev",
         "hyperf/server": "3.0.*",
-        "hyperf/utils": "3.0.*"
+        "hyperf/utils": "3.0.*",
+        "roc/rpc": "dev-main"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -83,5 +87,11 @@
         "start": "php ./bin/hyperf.php start",
         "test": "co-phpunit --prepend test/bootstrap.php -c phpunit.xml --colors=always",
         "rector": "rector process --clear-cache"
+    },
+    "repositories": {
+        "rpc": {
+            "type": "path",
+            "url": "../rpc"
+        }
     }
 }

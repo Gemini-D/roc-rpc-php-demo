@@ -13,7 +13,7 @@ namespace ROC\RPC;
 
 class UserInput implements \JsonSerializable
 {
-    public function __construct(public mixed $id)
+    public function __construct(public int $id)
     {
     }
 

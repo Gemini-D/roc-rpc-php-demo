@@ -15,6 +15,7 @@ use Hyperf\Server\Server;
 
 return [
     'mode' => SWOOLE_BASE,
+    'type' => Hyperf\Server\CoroutineServer::class,
     'servers' => [
         [
             'name' => 'http',
@@ -24,6 +25,23 @@ return [
             'sock_type' => SocketType::TCP,
             'callbacks' => [
                 Event::ON_REQUEST => [Hyperf\HttpServer\Server::class, 'onRequest'],
+            ],
+        ],
+        [
+            'name' => 'rpc',
+            'type' => Server::SERVER_BASE,
+            'host' => '0.0.0.0',
+            'port' => 9504,
+            'sock_type' => SWOOLE_SOCK_TCP,
+            'callbacks' => [
+                Event::ON_RECEIVE => [Hyperf\RpcMultiplex\TcpServer::class, 'onReceive'],
+            ],
+            'settings' => [
+                'open_length_check' => true,
+                'package_length_type' => 'N',
+                'package_length_offset' => 0,
+                'package_body_offset' => 4,
+                'package_max_length' => 1024 * 1024 * 2,
             ],
         ],
     ],
