@@ -94,21 +94,12 @@ class BootConsumerListener implements ListenerInterface
         $config = $this->container->get(ConfigInterface::class);
 
         $consumers = $config->get('services.consumers', []);
-        $names = array_column($consumers, 'name');
-
         $services = [
             UserInterface::class => ['127.0.0.1', 9504],
         ];
 
         foreach ($services as $interface => [$host, $port]) {
-            if (! in_array($interface, $names)) {
-                $consumers[] = static::getDefaultConsumer($interface, $host, $port);
-            }
-        }
-
-        $names = array_column($consumers, 'name');
-        if (count($names) !== count(array_unique($names))) {
-            throw new \InvalidArgumentException('RPC 组件中，存在重复的 Service 名，请检查并修改后重试');
+            $consumers[] = static::getDefaultConsumer($interface, $host, $port);
         }
 
         $config->set('services.consumers', $consumers);
@@ -144,7 +135,6 @@ class BootConsumerListener implements ListenerInterface
         ];
     }
 }
-
 ```
 
 ## 编写RPC服务端代码
