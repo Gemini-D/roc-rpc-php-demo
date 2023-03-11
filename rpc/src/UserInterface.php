@@ -13,5 +13,5 @@ namespace ROC\RPC;
 
 interface UserInterface
 {
-    public function info(UserInput $input): UserInput;
+    public function info(UserInput $input): User;
 }
